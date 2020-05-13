@@ -24,8 +24,8 @@ public class DbInit implements CommandLineRunner {
         this.userDao.deleteAll();
 
         // Create users
-        User dan = new User("tom",passwordEncoder.encode("123"),"LIBRARY","ACCESS_TEST, ACCESS_LIBRARY2");
-        User admin = new User("kim",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_USERS,ACCESS_LIBRARY");
+        User dan = new User("tom",passwordEncoder.encode("123"),"LIBRARY","ACCESS_BRANCH");
+        User admin = new User("kim",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_USERS");
         User manager = new User("borrower",passwordEncoder.encode("borrower123"),"BORROWER","ACCESS_USERS");
 
         List<User> users = Arrays.asList(dan,admin,manager);

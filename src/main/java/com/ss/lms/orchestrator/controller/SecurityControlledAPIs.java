@@ -18,6 +18,9 @@ import com.ss.lms.orchestrator.entity.User;
 public class SecurityControlledAPIs {
     private UserDAO userDao;
 
+    @Autowired
+	RestTemplate restTemplate;
+    
     public SecurityControlledAPIs(UserDAO userDao){
         this.userDao = userDao;
     }
@@ -27,4 +30,17 @@ public class SecurityControlledAPIs {
     public List<User> users(){
         return this.userDao.findAll();
     }
+    
+    //------------Requests for library-----------------------
+    @GetMapping(path="/lms/public/library/branches")
+	public ResponseEntity<String> branch() throws SQLException {
+		return restTemplate.getForEntity("http://LIBRARY-SERVICE/lms/public/library/branches/", String.class);
+	}
+    
+    @GetMapping(path="/lms/public/library/branches/{branchId}}")
+	public ResponseEntity<String> branch(@PathVariable int branchId) throws SQLException {
+		return restTemplate.getForEntity("http://LIBRARY-SERVICE/lms/public/library/branches/"+branchId, String.class);
+	}
+    
+    //To do for all paths
 }
