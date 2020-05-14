@@ -26,7 +26,8 @@ public class DbInit implements CommandLineRunner {
 		// Create users
 		User dan = new User("tom", passwordEncoder.encode("123"), "LIBRARY",
 				"ACCESS_BRANCH1, ACCESS_BRANCH2, ACCESS_BRANCH3, ACCESS_COPIES,ACCESS_COPY1,ACCESS_COPY2");
-		User admin = new User("kim", passwordEncoder.encode("admin123"), "ADMIN", "ACCESS_USERS, ACCESS_ADMIN");
+		User admin = new User("kim", passwordEncoder.encode("admin123"), "ADMIN",
+				"ACCESS_AA,ACCESS_AB,ACCESS_AF,ACCESS_PD,ACCESS_GE,ACCESS_GF,ACCESS_BRA,ACCESS_BRB,ACCESS_BRC,ACCESS_BRD,ACCESS_BRE,ACCESS_BRF,ACCESS_BA");
 		User manager = new User("borrower", passwordEncoder.encode("borrower123"), "BORROWER", "ACCESS_USERS");
 
 		List<User> users = Arrays.asList(dan, admin, manager);
